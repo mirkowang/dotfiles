@@ -1,33 +1,31 @@
 1. requirements:
-    1.0: fonts
-        1.0.1: OperatorMono for ascii 
-        1.0.2: brew install font-hack-nerd-font
-        1.0.3: https://www.nerdfonts.com/font-downloads download "hack nerd font" 
-                and setup for non-ascii in iterm2
-    2.0: on-my-zsh
+    1.0: homebrew (manual prepend "/opt/homebrew/bin" to $PATH for now)
+    1.1: fonts
+        1.1.1: OperatorMono for ascii 
+        1.1.2: brew install font-hack-nerd-font (setup for non-ascii in iterm2)
+    1.2: on-my-zsh
 
 2. iterm2 & tmux
     2.1: base16-google-light.itermcolors
-    2.2: homebrew
-    2.3: brew install neovim tmux git wget npm(for jsonls and yamlls)
-    2.4:
-        brew install font-hack-nerd-font
-        (for neotree display)
-        enable italic text
-    2.5: tic -x tmux/tmux-256color.terminfo  (setup tmux to enable italic text)
+    2.2: brew install neovim tmux git wget npm(for jsonls and yamlls)
+    2.3: enable italic text && turn off "Show mark indicators" for iterm2
+    2.4: tic -x tmux/tmux-256color.terminfo  (setup tmux to enable italic text)
+    2.5: silent bell(!!!)
 
 3. lua(lua_ls for lsp, luacheck for lint, stylua for format)
     3.0: both lua_ls and stylua are installed by mason in NeoVim 
-    3.1: luarocks: https://luarocks.org/#quick-start (for the familarity of luarocks)
+    3.1: luarocks: https://luarocks.org/#quick-start 
     3.2: luarocks install luacheck && luarocks install lanes
+    ps. luacheck can be handled by mason too, but for the familarity of luarocks
+        here use luarocks to install luacheck & lanes
 
 4. python(pylsp for lsp, installed by mason, ruff for lint, ruff-format for format)
-    4.0: pyenv
+    4.0: brew install pyenv
     4.1: pip3 install ruff(for lint)
 
 5. ruby(ruby-lsp for lsp, rubocop for ruby lint & format, erb-lint/erb-formatter for eruby lint/format)
     5.0: brew install rbenv
-    5.1: rbenv install 3.3.4 & rbenv global 3.3.4
+    5.1: rbenv install 3.3.5 & rbenv global 3.3.5
     5.2: gem install rubocop erb_lint erb-formatter
 
 5. install
