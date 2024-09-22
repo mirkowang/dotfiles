@@ -38,7 +38,7 @@ return {
 						["<esc>"] = actions.close,
 					},
 				},
-				file_ignore_patterns = { ".git/", "/tmp/cache" },
+				file_ignore_patterns = { ".git/", "/tmp/cache", "./tmp/" },
 				preview = {
 					timeout = 200,
 				},
@@ -46,7 +46,7 @@ return {
 			extensions = {},
 			pickers = {
 				find_files = {
-					previewer = false,
+					previewer = true,
 				},
 			},
 		})

@@ -36,6 +36,13 @@ vim.keymap.set("n", "<C-k>", "<C-w><C-k>", { noremap = true, silent = true })
 -- Map <leader>e to edit file in current directory
 vim.keymap.set("n", "<leader>e", ":e <C-R>=escape(expand(\"%:p:h\"),' ') . '/'<CR>", { noremap = true, silent = false })
 
+vim.api.nvim_create_autocmd("FileType", {
+	pattern = "help",
+	callback = function()
+		vim.api.nvim_buf_set_keymap(0, "n", "q", ":q<CR>", { noremap = true, silent = true })
+	end,
+})
+
 -- Move text up and down
 -- vim.keymap.set('i', '<A-j>', '<Esc>:move .+1<CR>==gi')
 -- vim.keymap.set('i', '<A-k>', '<Esc>:move .-2<CR>==gi')

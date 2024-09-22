@@ -21,7 +21,7 @@ vim.opt.incsearch = true
 vim.opt.hlsearch = true
 vim.opt.ignorecase = true
 vim.opt.smartcase = true
-vim.opt.clipboard = "unnamedplus"
+vim.opt.clipboard = "unnamed"
 vim.opt.splitbelow = true
 vim.opt.splitright = true
 -- complete the longest common match, and allow tabbing the results to fully complete.
