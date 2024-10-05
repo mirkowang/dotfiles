@@ -21,9 +21,10 @@ end
 
 -- Function to resize splits based on proportions
 local function resize_splits(proportions)
+	local original_cmdheight = vim.o.cmdheight -- Store original cmdheight
 	local wins = vim.api.nvim_tabpage_list_wins(0)
 	local total_width = vim.o.columns
-	local total_height = vim.o.lines - vim.o.cmdheight
+	local total_height = vim.o.lines - original_cmdheight -- Use original cmdheight
 
 	local commands = {}
 
@@ -46,6 +47,8 @@ local function resize_splits(proportions)
 	if #commands > 0 then
 		vim.cmd(table.concat(commands, " | "))
 	end
+
+	vim.o.cmdheight = original_cmdheight -- Restore original cmdheight
 end
 
 -- Create an autocommand group for resizing splits
