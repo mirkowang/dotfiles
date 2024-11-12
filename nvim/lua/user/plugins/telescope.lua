@@ -14,7 +14,10 @@ return {
 		{
 			"<C-e>",
 			function()
-				require("telescope.builtin").buffers()
+				require("telescope.builtin").buffers({
+					sort_mru = true, -- Sort by most recently used buffers
+					ignore_current_buffer = true, -- Optionally, ignore the current buffer
+				})
 			end,
 		},
 		-- { '<C-h>', function() require('telescope.builtin').oldfiles() end },
