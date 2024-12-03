@@ -1,0 +1,23 @@
+#!/usr/bin/env sh
+
+DOTFILES="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+
+# alias
+ln -sf $DOTFILES/alias $HOME/.alias
+
+# zsh
+ln -sf $DOTFILES/zshrc $HOME/.zshrc
+
+# setup rbenv
+brew install ebenv
+
+echo '# rbenv configuration' >> ~/.zshrc
+echo 'eval "$(rbenv init -)"' >> ~/.zshrc
+
+# setup pyenv
+brew install pyenv
+
+echo '# pyenv configuration' >> ~/.zshrc
+echo 'export PYENV_ROOT="$HOME/.pyenv"' >> ~/.zshrc
+echo '[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"' >> ~/.zshrc
+echo 'eval "$(pyenv init -)"' >> ~/.zshrc

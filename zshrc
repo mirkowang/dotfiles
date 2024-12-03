@@ -1,5 +1,5 @@
 # If you come from bash you might have to change your $PATH.
-export PATH=/usr/local/bin:$HOME/.local/bin:$PATH
+export PATH="/opt/homebrew/bin:/usr/local/bin:$PATH"
 
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
@@ -34,14 +34,6 @@ export LANG=en_US.UTF-8
 
 source $ZSH/oh-my-zsh.sh
 
-# User configuration
-#
-source ~/.alias
-
-export EDITOR='vim'
-
-alias vim='nvim'
-
 # This command disables the software flow control that uses <C-s> and <C-q>.
 stty -ixon
 
@@ -56,30 +48,6 @@ fi
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
 # For a full list of active aliases, run `alias`.
-#
-# Example aliases
-# alias zshconfig="vim ~/.zshrc"
-# alias ohmyzsh="vim ~/.oh-my-zsh"
+alias vim='nvim'
 
-# Load .pyenvrc if it exists
-if [ -f "$HOME/.pyenvrc" ]; then
-  source "$HOME/.pyenvrc"
-fi
-
-export PATH="/Users/mirkowang/.rbenv/shims:${PATH}"
-export RBENV_SHELL=zsh
-command rbenv rehash 2>/dev/null
-rbenv() {
-  local command
-  command="${1:-}"
-  if [ "$#" -gt 0 ]; then
-    shift
-  fi
-
-  case "$command" in
-  rehash|shell)
-    eval "$(rbenv "sh-$command" "$@")";;
-  *)
-    command rbenv "$command" "$@";;
-  esac
-}
+source ~/.alias
