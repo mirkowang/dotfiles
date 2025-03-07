@@ -3,3 +3,5 @@ alias gaa="git add ."
 alias glo="git log --oneline"
 alias gcm="git commit -m"
 alias gpo="git push origin main"
+
+alias wip="git add . && git commit -m 'wip'"

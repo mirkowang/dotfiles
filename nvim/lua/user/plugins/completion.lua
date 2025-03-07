@@ -45,7 +45,7 @@ return {
 				{ name = "path" },
 			},
 			experimental = {
-				-- ghost_text = true,
+				ghost_text = true,
 			},
 		})
 	end,

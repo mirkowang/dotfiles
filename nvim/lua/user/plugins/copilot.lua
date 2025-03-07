@@ -21,10 +21,9 @@ local prompts = {
 
 return {
 	"CopilotC-Nvim/CopilotChat.nvim",
-	branch = "canary",
 	dependencies = {
 		{ "zbirenbaum/copilot.lua" }, -- or github/copilot.vim
-		{ "nvim-lua/plenary.nvim" }, -- for curl, log wrapper
+		{ "nvim-lua/plenary.nvim", branch = "master" }, -- for curl, log wrapper
 	},
 
 	build = "make tiktoken", -- Only on MacOS or Linux
@@ -83,7 +82,7 @@ return {
 		chat.setup(opts)
 
 		-- Setup the CMP integration
-		require("CopilotChat.integrations.cmp").setup()
+		-- require("CopilotChat.integrations.cmp").setup()
 
 		vim.api.nvim_create_user_command("CopilotChatVisual", function(args)
 			chat.ask(args.args, { selection = select.visual })

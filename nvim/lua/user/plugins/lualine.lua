@@ -21,7 +21,25 @@ return {
 					{ "diagnostics", sources = { "nvim_diagnostic" } },
 					-- "diagnostics",
 				},
-				lualine_c = { "filename" },
+
+				lualine_c = {
+					function()
+						local filepath = vim.fn.expand("%:p") -- Get the absolute path
+						local parent_dir = vim.fn.fnamemodify(filepath, ":h:t") -- Get the parent directory
+						local filename = vim.fn.fnamemodify(filepath, ":t") -- Get the filename
+						if parent_dir and filename then
+							return parent_dir .. "/" .. filename
+						else
+							return filename or "" -- Fallback to just filename
+						end
+					end,
+				},
+				-- lualine_c = {
+				-- 	function()
+				-- 		return vim.fn.expand("%:~:.")
+				-- 	end,
+				-- },
+				-- lualine_c = { "filename" },
 				-- lualine_x = { "encoding", "fileformat", "filetype" },
 				lualine_x = { "filetype" },
 				lualine_y = { "progress" },
