@@ -17,12 +17,13 @@ return {
 	-- vim.keymap.set('n', '<Leader>lr', ':LspRestart<CR>', { silent = true })
 	vim.keymap.set("n", "K", "<cmd>lua vim.lsp.buf.hover()<CR>"),
 	-- vim.keymap.set('n', '<Leader>rn', '<cmd>lua vim.lsp.buf.rename()<CR>')
+	--
 	config = function()
 		require("mason").setup()
 
-		require("mason-lspconfig").setup({
-			automatic_installation = true,
-		})
+		-- require("mason-lspconfig").setup({
+		-- 	automatic_installation = true,
+		-- })
 
 		-- nvim-cmp add extra capabilities to nvim.lsp default capabilities
 		local capabilities = require("cmp_nvim_lsp").default_capabilities(vim.lsp.protocol.make_client_capabilities())

@@ -43,6 +43,13 @@ vim.api.nvim_create_autocmd("FileType", {
 	end,
 })
 
+-- vim.api.nvim_create_autocmd("BufWritePre", {
+-- 	pattern = "*.rb",
+-- 	callback = function()
+-- 		vim.lsp.buf.format()
+-- 	end,
+-- })
+
 -- Move text up and down
 -- vim.keymap.set('i', '<A-j>', '<Esc>:move .+1<CR>==gi')
 -- vim.keymap.set('i', '<A-k>', '<Esc>:move .-2<CR>==gi')

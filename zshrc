@@ -83,3 +83,7 @@ rbenv() {
     command rbenv "$command" "$@";;
   esac
 }
+export PATH="/opt/homebrew/opt/mysql@8.0/bin:$PATH"
+
+# Added by Windsurf
+export PATH="/Users/mirkowang/.codeium/windsurf/bin:$PATH"

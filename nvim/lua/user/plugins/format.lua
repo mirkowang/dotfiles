@@ -11,7 +11,7 @@ return {
 				python = { "ruff_format" },
 
 				-- gem install rubocop
-				ruby = { "rubocop" },
+				-- ruby = { "rubocop" },
 
 				-- gem install erb-formatter
 				eruby = { "erb_format" },
