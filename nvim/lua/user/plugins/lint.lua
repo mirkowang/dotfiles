@@ -14,10 +14,8 @@ return {
 			-- pip3 install ruff
 			python = { "ruff" },
 
-			-- gem install rubocop
 			ruby = { "rubocop" },
 
-			-- gem install erb_lint
 			eruby = { "erb_lint" },
 		}
 
