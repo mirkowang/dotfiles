@@ -1,4 +1,4 @@
-return {
+local spec = {
 	"neovim/nvim-lspconfig",
 	dependencies = {
 		"williamboman/mason.nvim",
@@ -7,15 +7,14 @@ return {
 		"b0o/schemastore.nvim",
 	},
 	event = "BufReadPre",
-	keys = {},
 	-- -- Keymaps
-	-- vim.keymap.set('n', '<Leader>d', '<cmd>lua vim.diagnostic.open_float()<CR>')
+	vim.keymap.set("n", "<Leader>d", "<cmd>lua vim.diagnostic.open_float()<CR>"),
 	vim.keymap.set("n", "gd", ":Telescope lsp_definitions<CR>"),
+	vim.keymap.set("n", "K", "<cmd>lua vim.lsp.buf.hover()<CR>"),
 	-- vim.keymap.set('n', 'ga', '<cmd>lua vim.lsp.buf.code_action()<CR>')
 	-- vim.keymap.set('n', 'gi', ':Telescope lsp_implementations<CR>')
-	vim.keymap.set("n", "gr", ":Telescope lsp_references<CR>"),
+	-- vim.keymap.set("n", "gr", ":Telescope lsp_references<CR>"),
 	-- vim.keymap.set('n', '<Leader>lr', ':LspRestart<CR>', { silent = true })
-	vim.keymap.set("n", "K", "<cmd>lua vim.lsp.buf.hover()<CR>"),
 	-- vim.keymap.set('n', '<Leader>rn', '<cmd>lua vim.lsp.buf.rename()<CR>')
 	--
 	config = function()
@@ -28,57 +27,45 @@ return {
 		-- nvim-cmp add extra capabilities to nvim.lsp default capabilities
 		local capabilities = require("cmp_nvim_lsp").default_capabilities(vim.lsp.protocol.make_client_capabilities())
 
-		require("lspconfig").lua_ls.setup.setup({
-			-- update capabilities with enhanced client capabilities
+		local function root_dir_from_markers(markers)
+			return function(bufnr, on_dir)
+				local root = vim.fs.root(bufnr, markers) or vim.uv.cwd() or vim.fn.getcwd()
+				on_dir(root)
+			end
+		end
+
+		vim.lsp.config("*", {
 			capabilities = capabilities,
+		})
 
-			on_init = function(client)
-				if client.workspace_folders then
-					local path = client.workspace_folders[1].name
-					if
-						path ~= vim.fn.stdpath("config")
-						and (vim.uv.fs_stat(path .. "/.luarc.json") or vim.uv.fs_stat(path .. "/.luarc.jsonc"))
-					then
-						return
-					end
-				end
-
-				client.config.settings.Lua = vim.tbl_deep_extend("force", client.config.settings.Lua, {
+		vim.lsp.config("lua_ls", {
+			settings = {
+				Lua = {
 					runtime = {
-						-- Tell the language server which version of Lua you're using
-						-- (most likely LuaJIT in the case of Neovim)
 						version = "LuaJIT",
+						library = {
+							vim.env.VIMRUNTIME .. "/lua",
+							"${3rd}/luv/library",
+						},
 					},
-					-- Make the server aware of Neovim runtime files
 					workspace = {
 						checkThirdParty = false,
 						library = {
 							vim.env.VIMRUNTIME,
-							-- "${3rd}/luv/library",
-							-- Depending on the usage, you might want to add additional paths here.
-							-- "${3rd}/busted/library",
+							"${3rd}/luv/library",
 						},
-						-- or pull in all of 'runtimepath'. NOTE: this is a lot slower
-						-- library = vim.api.nvim_get_runtime_file("", true)
 					},
-				})
-			end,
-
-			root_dir = function(fname)
-				return require("lspconfig.util").root_pattern(".luarc.json", ".luarc.jsonc", ".git")(fname)
-					or vim.fn.getcwd()
-			end,
-
-			settings = {
-				Lua = {},
+					diagnostics = {
+						globals = { "vim" },
+					},
+				},
 			},
+
+			root_dir = root_dir_from_markers({ ".luarc.json", ".luarc.jsonc", ".git" }),
 		})
 
 		-- community fork of pyls
-		require("lspconfig").pylsp.setup({
-			-- update capabilities with enhanced client capabilities
-			capabilities = capabilities,
-
+		vim.lsp.config("pylsp", {
 			settings = {
 				pylsp = {
 					plugins = {
@@ -91,8 +78,7 @@ return {
 			},
 		})
 
-		require("lspconfig").jsonls.setup({
-			capabilities = capabilities,
+		vim.lsp.config("jsonls", {
 			settings = {
 				json = {
 					schema = require("schemastore").json.schemas({
@@ -110,17 +96,23 @@ return {
 			},
 		})
 
-		require("lspconfig").ruby_lsp.setup({
-			capabilities = capabilities,
+		vim.lsp.config("ruby_lsp", {
 			filetypes = { "ruby", "eruby" },
 		})
 
-		require("lspconfig").emmet_language_server.setup({
-			capabilities = capabilities,
+		vim.lsp.config("emmet_language_server", {
 			filetypes = { "eruby", "html" },
 		})
 
-		-- require("lspconfig").yamlls.setup({
+		vim.lsp.enable({
+			"lua_ls",
+			"pylsp",
+			"jsonls",
+			"ruby_lsp",
+			"emmet_language_server",
+		})
+
+		-- vim.lsp.config("yamlls", {
 		-- 	settings = {
 		-- 		yaml = {
 		-- 			schemaStore = {
@@ -136,3 +128,5 @@ return {
 		-- })
 	end,
 }
+
+return spec

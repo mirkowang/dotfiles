@@ -1,0 +1,3 @@
+WRN 2025-10-01T00:23:10.317 ?.6554     server_start:193: Failed to start server: operation not permitted: /var/folders/3n/g1x573cj0d3cllrn524wjsf80000gn/T/nvim.mirkowang/zXVinC/nvim.6554.0
+WRN 2025-10-01T00:23:16.311 ?.6579     server_start:193: Failed to start server: operation not permitted: /var/folders/3n/g1x573cj0d3cllrn524wjsf80000gn/T/nvim.mirkowang/jSMWK4/nvim.6579.0
+WRN 2025-10-01T00:24:24.368 ?.6799     server_start:193: Failed to start server: operation not permitted: /var/folders/3n/g1x573cj0d3cllrn524wjsf80000gn/T/nvim.mirkowang/pGsqtN/nvim.6799.0

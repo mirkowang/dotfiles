@@ -11,5 +11,3 @@ alias rt="./bin/rails t"
 alias rtm="./bin/rails test:models"
 alias rtc="./bin/rails test:controllers"
 alias rs="./bin/rails stats"
-
-alias avante='nvim -c "lua vim.defer_fn(function()require(\"avante.api\").zen_mode()end, 100)"'

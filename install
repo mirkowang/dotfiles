@@ -24,4 +24,4 @@ ln -s $DOTFILES/nvim $HOME/.config/nvim
 
 # luacheckrc
 rm -rf $HOME/.luacheckrc
-ln -s $DOTFILES/luacheckrc $HOME/.luacheckrc
+ln -sf $DOTFILES/luacheckrc $HOME/.luacheckrc
