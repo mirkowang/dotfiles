@@ -83,7 +83,15 @@ rbenv() {
     command rbenv "$command" "$@";;
   esac
 }
-export PATH="/opt/homebrew/opt/mysql@8.0/bin:$PATH"
 
-# Added by Windsurf
-export PATH="/Users/mirkowang/.codeium/windsurf/bin:$PATH"
+# Added by mirkowang
+export PATH="/opt/homebrew/bin:$PATH"
+export PATH="/opt/homebrew/opt/mysql-client@8.0/bin:$PATH"
+
+export ANTHROPIC_AUTH_TOKEN=sk-OlsaGUP4Hc4JTggStDWSVYvZIQD8kzoHK7WRPu1vZMW9Kkzt
+# export ANTHROPIC_AUTH_TOKEN=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
+export ANTHROPIC_BASE_URL=https://api.moonshot.cn/anthropic
+
+export AZURE_OPENAI_API_KEY="CXhMsMCOkoHyYCtCyDbVhSYTB41XTHcTYlLW0z3JRmG9EHnDQzNjJQQJ99BIACHYHv6XJ3w3AAAAACOGkobM"
+
+export AVANTE_AZURE_OPENAI_API_KEY="CXhMsMCOkoHyYCtCyDbVhSYTB41XTHcTYlLW0z3JRmG9EHnDQzNjJQQJ99BIACHYHv6XJ3w3AAAAACOGkobM"

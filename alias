@@ -1,7 +1,15 @@
 alias gs="git status"
 alias gaa="git add ."
+alias gca="git commit --amend"
 alias glo="git log --oneline"
 alias gcm="git commit -m"
 alias gpo="git push origin main"
 
 alias wip="git add . && git commit -m 'wip'"
+
+alias rt="./bin/rails t"
+alias rtm="./bin/rails test:models"
+alias rtc="./bin/rails test:controllers"
+alias rs="./bin/rails stats"
+
+alias avante='nvim -c "lua vim.defer_fn(function()require(\"avante.api\").zen_mode()end, 100)"'

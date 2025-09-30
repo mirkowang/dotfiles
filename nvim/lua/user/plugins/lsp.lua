@@ -28,7 +28,7 @@ return {
 		-- nvim-cmp add extra capabilities to nvim.lsp default capabilities
 		local capabilities = require("cmp_nvim_lsp").default_capabilities(vim.lsp.protocol.make_client_capabilities())
 
-		require("lspconfig").lua_ls.setup({
+		require("lspconfig").lua_ls.setup.setup({
 			-- update capabilities with enhanced client capabilities
 			capabilities = capabilities,
 
