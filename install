@@ -5,19 +5,25 @@ DOTFILES="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 # alias
 ln -sf $DOTFILES/alias $HOME/.alias
 
-# zsh
-ln -sf $DOTFILES/zshrc $HOME/.zshrc
+# basic zsh
+if [ ! -f "$HOME/.zshrc" ]; then
+	cp $DOTFILES/zshrc $HOME/.zshrc
+fi
 
 # tmux
 rm -rf $HOME/.tmux.conf
 ln -sf $DOTFILES/tmux/tmux.conf $HOME/.tmux.conf
 
+# tmux command
 mkdir -p $HOME/.local/bin
 ln -sf $DOTFILES/tmux/t $HOME/.local/bin/t
 
+# neovim 
 rm -rf $HOME/.config/nvim
 ln -sf $DOTFILES/nvim $HOME/.config/nvim
 
 # luacheckrc
 rm -rf $HOME/.luacheckrc
 ln -sf $DOTFILES/luacheckrc $HOME/.luacheckrc
+
+# programming setup

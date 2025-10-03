@@ -52,6 +52,14 @@ else
   export EDITOR='nvim'
 fi
 
+if [ -f "$HOME/.tokens" ]; then
+  source "$HOME/.tokens"
+fi
+
+if [ -f "$HOME/.programming" ]; then
+  source "$HOME/.programming"
+fi
+
 # Load .pyenvrc if it exists
 if [ -f "$HOME/.pyenvrc" ]; then
   source "$HOME/.pyenvrc"
