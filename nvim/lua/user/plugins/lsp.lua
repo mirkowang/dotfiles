@@ -1,4 +1,4 @@
-local spec = {
+return {
 	"neovim/nvim-lspconfig",
 	dependencies = {
 		"williamboman/mason.nvim",
@@ -7,7 +7,7 @@ local spec = {
 		"b0o/schemastore.nvim",
 	},
 	event = "BufReadPre",
-	-- -- Keymaps
+	-- Keymaps
 	vim.keymap.set("n", "<Leader>d", "<cmd>lua vim.diagnostic.open_float()<CR>"),
 	vim.keymap.set("n", "gd", ":Telescope lsp_definitions<CR>"),
 	vim.keymap.set("n", "K", "<cmd>lua vim.lsp.buf.hover()<CR>"),
@@ -132,5 +132,3 @@ local spec = {
 		-- })
 	end,
 }
-
-return spec

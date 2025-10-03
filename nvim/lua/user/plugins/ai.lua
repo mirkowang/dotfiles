@@ -1,8 +1,3 @@
--- luacheck: globals vim
----@diagnostic disable-next-line: undefined-global
----
--- https://github.com/jellydn/lazy-nvim-ide/blob/main/lua/plugins/extras/copilot-chat-v2.lua
---
 local prompts = {
 	-- Code related prompts
 	Explain = "Please explain how the following code works.",
