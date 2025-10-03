@@ -54,9 +54,13 @@ local spec = {
 							vim.env.VIMRUNTIME,
 							"${3rd}/luv/library",
 						},
+						-- Ignore .luacheckrc file to avoid lowercase-global warnings
+						ignoreDir = { "luacheckrc" },
 					},
 					diagnostics = {
 						globals = { "vim" },
+						-- Disable lowercase global warnings for config files
+						disable = { "lowercase-global" },
 					},
 				},
 			},

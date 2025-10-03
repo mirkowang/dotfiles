@@ -6,11 +6,11 @@ stds = {
 			fields = {
 				uv = {
 					fields = {
-						cwd = {}
-					}
-				}
-			}
-		}
+						cwd = {},
+					},
+				},
+			},
+		},
 	},
 }
 
