@@ -52,15 +52,6 @@ else
   export EDITOR='nvim'
 fi
 
-# Set personal aliases, overriding those provided by oh-my-zsh libs,
-# plugins, and themes. Aliases can be placed here, though oh-my-zsh
-# users are encouraged to define aliases within the ZSH_CUSTOM folder.
-# For a full list of active aliases, run `alias`.
-#
-# Example aliases
-# alias zshconfig="vim ~/.zshrc"
-# alias ohmyzsh="vim ~/.oh-my-zsh"
-
 # Load .pyenvrc if it exists
 if [ -f "$HOME/.pyenvrc" ]; then
   source "$HOME/.pyenvrc"
