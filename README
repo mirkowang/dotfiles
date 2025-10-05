@@ -15,6 +15,7 @@
     2.5: silent bell(!!!)
 
 3. lua(lua_ls for lsp, luacheck for lint, stylua for format, installed by mason)
+    3.0: install luarocks first(https://luarocks.org/#quick-start)
 
 4. python(pylsp for lsp, ruff for lint, ruff-format for format, installed by mason)
     4.0: brew install pyenv
@@ -24,7 +25,12 @@
     5.0: brew install rbenv
     5.1: rbenv install 3.3.5 & rbenv global 3.3.5
 
-5. install
-    5.1: chmod +x install && ./install
+6. mysql-client
+    6.0: brew install mysql-client@8.0
+    6.1: echo 'export PATH="/opt/homebrew/opt/mysql-client@8.0/bin:$PATH"' >> ~/.zshrc
 
+7. coding
+    7.1: npm i -g @openai/codex 
 
+7. install
+    7.1: chmod +x install && ./install

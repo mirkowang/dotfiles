@@ -56,6 +56,10 @@ if [ -f "$HOME/.authorizations" ]; then
   source "$HOME/.authorizations"
 fi
 
+if [ -f "$HOME/.coding" ]; then
+  source "$HOME/.coding"
+fi
+
 # Added by mirkowang
 export PATH="/opt/homebrew/bin:$PATH"
 export PATH="/opt/homebrew/opt/mysql-client@8.0/bin:$PATH"
