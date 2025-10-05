@@ -27,3 +27,9 @@ rm -rf $HOME/.luacheckrc
 ln -sf $DOTFILES/luacheckrc $HOME/.luacheckrc
 
 # programming setup
+# create codex directory if not exists
+if [ ! -d "$HOME/.codex" ]; then
+	mkdir -p "$HOME/.codex"
+fi
+# copy config file
+cp "$DOTFILES/codex/config.toml" "$HOME/.codex/config.toml"

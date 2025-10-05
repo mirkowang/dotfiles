@@ -1,0 +1,19 @@
+model = "gpt-5-codex"  # Replace with your actual Azure model deployment name
+model_provider = "azure"
+model_reasoning_effort = "medium"
+
+[model_providers.azure]
+name = "Azure OpenAI"
+# Make sure you set the appropriate subdomain for this URL.
+base_url = "https://coding-mortalks.openai.azure.com/openai/v1"
+env_key = "AZURE_OPENAI_API_KEY"
+wire_api = "responses"
+
+[projects."/Users/mirkowang/Code/mortalks/iOS"]
+trust_level = "trusted"
+
+[projects."/Users/mirkowang/Code/dotfiles"]
+trust_level = "trusted"
+
+[projects."/Users/mirkowang/Code/mortalks/server"]
+trust_level = "trusted"

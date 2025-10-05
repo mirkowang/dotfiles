@@ -52,44 +52,10 @@ else
   export EDITOR='nvim'
 fi
 
-if [ -f "$HOME/.tokens" ]; then
-  source "$HOME/.tokens"
+if [ -f "$HOME/.authorizations" ]; then
+  source "$HOME/.authorizations"
 fi
-
-if [ -f "$HOME/.programming" ]; then
-  source "$HOME/.programming"
-fi
-
-# Load .pyenvrc if it exists
-if [ -f "$HOME/.pyenvrc" ]; then
-  source "$HOME/.pyenvrc"
-fi
-
-export PATH="/Users/mirkowang/.rbenv/shims:${PATH}"
-export RBENV_SHELL=zsh
-command rbenv rehash 2>/dev/null
-rbenv() {
-  local command
-  command="${1:-}"
-  if [ "$#" -gt 0 ]; then
-    shift
-  fi
-
-  case "$command" in
-  rehash|shell)
-    eval "$(rbenv "sh-$command" "$@")";;
-  *)
-    command rbenv "$command" "$@";;
-  esac
-}
 
 # Added by mirkowang
 export PATH="/opt/homebrew/bin:$PATH"
 export PATH="/opt/homebrew/opt/mysql-client@8.0/bin:$PATH"
-
-# export ANTHROPIC_AUTH_TOKEN=sk-OlsaGUP4Hc4JTggStDWSVYvZIQD8kzoHK7WRPu1vZMW9Kkzt
-# export ANTHROPIC_BASE_URL=https://api.moonshot.cn/anthropic
-
-# export ANTHROPIC_AUTH_TOKEN=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
-
-export AZURE_OPENAI_API_KEY="CXhMsMCOkoHyYCtCyDbVhSYTB41XTHcTYlLW0z3JRmG9EHnDQzNjJQQJ99BIACHYHv6XJ3w3AAAAACOGkobM"
