@@ -41,7 +41,7 @@ return {
 						["<esc>"] = actions.close,
 					},
 				},
-				file_ignore_patterns = { ".git/", "/tmp/cache", "./tmp/" },
+				file_ignore_patterns = { ".git/", "tmp/", "vendor/" },
 				preview = {
 					timeout = 200,
 				},

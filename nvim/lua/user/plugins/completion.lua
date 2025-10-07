@@ -32,8 +32,8 @@ return {
 			},
 			sources = {
 				{ name = "nvim_lsp" },
-				-- { name = "nvim_lsp_signature_help" },
-				{ name = "copilot" },
+				{ name = "nvim_lsp_signature_help" },
+				-- { name = "copilot" },
 				{
 					name = "buffer",
 					option = {
@@ -42,7 +42,7 @@ return {
 						end,
 					},
 				},
-				{ name = "path" },
+				-- { name = "path" },
 			},
 			experimental = {
 				ghost_text = true,
