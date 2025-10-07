@@ -9,7 +9,7 @@
 
 2. iterm2 & tmux
     2.1: base16-google-light.itermcolors
-    2.2: brew install neovim tmux git wget npm(for jsonls and yamlls)
+    2.2: brew install neovim tmux git wget ripgrep npm luarocks
     2.3: enable italic text && turn off "Show mark indicators" for iterm2
     2.4: tic -x tmux/tmux-256color.terminfo  (setup tmux to enable italic text)
     2.5: silent bell(!!!)
