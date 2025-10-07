@@ -9,10 +9,10 @@ return {
 	build = "make tiktoken", -- Only on MacOS or Linux
 	keys = {
 		{
-			"<leader>av",
+			"<leader>ac",
 			":CopilotChatVisual",
 			mode = "x",
-			desc = "CopilotChat - Open in vertical split",
+			desc = "CopilotChat - Ask copilot with vertical split",
 		},
 	},
 	config = function(_, opts)
@@ -49,11 +49,17 @@ return {
 	opts = {
 		model = "gpt-5-mini",
 
-		question_header = "## User ",
-		answer_header = "## Copilot ",
-		error_header = "## Error ",
 		auto_follow_cursor = true, -- Don't follow the cursor after getting response
 		show_help = true, -- Show help in virtual text, set to true if that's 1st time using Copilot Chat
+
+		headers = {
+			user = "👤 You",
+			assistant = "🤖 Copilot",
+			tool = "🔧 Tool",
+		},
+
+		separator = "━━",
+		auto_fold = true, -- Automatically folds non-assistant messages
 
 		-- debug = true, -- Enable debugging
 		-- See Configuration section for rest
